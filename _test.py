@@ -65,7 +65,7 @@ def kp_G_A(p=0, m=0, n=0, items=[], c=0, incomp_classes=[], _file="problem1.in")
     for comb in comb_inc:
         curr_items = []
         for _class in comb:
-            curr_items.extend(_dic[str(_class)])            
+            curr_items.extend(_dic[str(float(_class))])            
 
         lst1, lst2, lst3, lst4, lst5, lst6, sorted_lsts = [], [], [], [], [], [], []
         for it in items:
