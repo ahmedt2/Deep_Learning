@@ -52,7 +52,7 @@ def kp_G_A(p=0, m=0, n=0, items=[], c=0, incomp_classes=[], _file="problem1.in")
         p, m, n, c, items, incomp_classes = params[0], params[1],  params[2],  params[3],\
          params[4],  params[5]
     comb_inc = list(itertools.product(*incomp_classes))
-    # set_of_inc_clss = set([x[0] for x in items])
+    set_of_inc_clss = set([x[0] for x in items])
     _dic = dict()
     for i in set_inc_clss:
         _dic[str(i)] = []
@@ -67,32 +67,32 @@ def kp_G_A(p=0, m=0, n=0, items=[], c=0, incomp_classes=[], _file="problem1.in")
         for _class in comb:
             curr_items.extend(_dic[str(_class)])            
 
-        # lst1, lst2, lst3, lst4, lst5, lst6, sorted_lsts = [], [], [], [], [], [], []
-        # for it in items:
-        #     try:
-        #         lst1.append((it, it[1]/it[0]))
-        #     except Exception:
-        #         lst1.append((it, 10000000000))
-        #     try:
-        #         lst2.append((it, it[2]/it[0]))
-        #     except Exception:
-        #         lst2.append((it, 10000000000))
-        #     try:
-        #         lst3.append((it, (it[2]-it[1])/it[0]))
-        #     except Exception:
-        #         lst3.append((it, 10000000000))
-        #     try:
-        #         lst4.append((it, (it[2]/it[1])/it[0]))
-        #     except Exception:
-        #         lst4.append((it, 10000000000))
-        #     try:
-        #         lst5.append((it, it[2]/it[1]))
-        #     except Exception:
-        #         lst5.append((it, 10000000000))
-        #     try:
-        #         lst6.append((it, it[2]/(it[1]+it[0])))
-        #     except Exception:
-        #         lst6.append((it, 10000000000))
+        lst1, lst2, lst3, lst4, lst5, lst6, sorted_lsts = [], [], [], [], [], [], []
+        for it in items:
+            try:
+                lst1.append((it, it[1]/it[0]))
+            except Exception:
+                lst1.append((it, 10000000000))
+            try:
+                lst2.append((it, it[2]/it[0]))
+            except Exception:
+                lst2.append((it, 10000000000))
+            try:
+                lst3.append((it, (it[2]-it[1])/it[0]))
+            except Exception:
+                lst3.append((it, 10000000000))
+            try:
+                lst4.append((it, (it[2]/it[1])/it[0]))
+            except Exception:
+                lst4.append((it, 10000000000))
+            try:
+                lst5.append((it, it[2]/it[1]))
+            except Exception:
+                lst5.append((it, 10000000000))
+            try:
+                lst6.append((it, it[2]/(it[1]+it[0])))
+            except Exception:
+                lst6.append((it, 10000000000))
         for lst in [lst1, lst2, lst3, lst4, lst5, lst6]:
             sorted_lsts.append(sorted(lst, key = lambda x: x[1]))
         sols = []
