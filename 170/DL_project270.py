@@ -259,7 +259,7 @@ def prod(p=0, m=0, n=0, items=[], c=0, incomp_classes=[], _file="problem1.in"):
         params = get_params(_file)
         p, m, n, c, items, incomp_classes = params[0], params[1],  params[2],  params[3],\
          params[4],  params[5]
-        comb_inc = list(itertools.product(*incomp_classes[:10]))
+    comb_inc = list(itertools.product(*incomp_classes[:10]))
     for i in range(199):
         comb_inc = list(itertools.product(*[comb_inc, *incomp_classes[i*10:10*(i+1)]]))
     return comb_inc
