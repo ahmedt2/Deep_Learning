@@ -1,3 +1,4 @@
+# (15+15+13+3+6+7+13+15+15+4+13)/10
 import sys
 import string
 import time
