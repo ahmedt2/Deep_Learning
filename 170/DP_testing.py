@@ -104,7 +104,7 @@ def Master():
                 problems[prob][0] = max_s
                 problems[prob][1] = max_k
             ed = time.clock()
-            print("CHECK-VALIDATION TIME = ", ed-st)
+            print("TIME = ", ed-st)
         for prob in all_probs_17:
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()
@@ -115,7 +115,7 @@ def Master():
                 problems[prob][0] = max_s
                 problems[prob][1] = max_k
             ed = time.clock()
-            print("CHECK-VALIDATION TIME = ", ed-st)                
+            print("TIME = ", ed-st)
         for prob in all_probs_12:
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()            
@@ -126,7 +126,7 @@ def Master():
                 problems[prob][0] = max_s
                 problems[prob][1] = max_k
             ed = time.clock()
-            print("CHECK-VALIDATION TIME = ", ed-st)                
+            print("TIME = ", ed-st)
         for prob in all_probs_8:
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()            
@@ -137,7 +137,7 @@ def Master():
                 problems[prob][0] = max_s
                 problems[prob][1] = max_k
             ed = time.clock()
-            print("CHECK-VALIDATION TIME = ", ed-st)                
+            print("TIME = ", ed-st)
         for prob in all_probs_6:
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()
@@ -148,7 +148,7 @@ def Master():
                 problems[prob][0] = max_s
                 problems[prob][1] = max_k
             ed = time.clock()
-            print("CHECK-VALIDATION TIME = ", ed-st)                
+            print("TIME = ", ed-st)
         for prob in all_probs_3:
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()
@@ -159,7 +159,7 @@ def Master():
                 problems[prob][0] = max_s
                 problems[prob][1] = max_k
             ed = time.clock()
-            print("CHECK-VALIDATION TIME = ", ed-st)                
+            print("TIME = ", ed-st)
     _write(problems)
     return problems
 def _powerset(iterable):
