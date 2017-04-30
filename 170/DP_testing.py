@@ -102,7 +102,11 @@ def Master():
         for prob in all_probs_22:
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()
-            s, k = kp_R(_file=prob, num=14)
+            try:          
+                s, k = kp_R(_file=prob, num=14)
+            except:
+                del problems[prob]
+                continue
             max_s=max(s)
             max_k=k[s.index(max(s))]
             if problems[prob][0] < max_s:
@@ -113,7 +117,11 @@ def Master():
         for prob in all_probs_17:
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()
-            s, k = kp_R(_file=prob, num=10)
+            try:          
+                s, k = kp_R(_file=prob, num=10)
+            except:
+                del problems[prob]
+                continue
             max_s=max(s)
             max_k=k[s.index(max(s))]
             if problems[prob][0] < max_s:
@@ -123,8 +131,12 @@ def Master():
             print("TIME = ", ed-st)
         for prob in all_probs_12:
             print("\"\"\"", prob, "\"\"\"")
-            st = time.clock()            
-            s, k = kp_R(_file=prob, num=7)
+            st = time.clock()
+            try:          
+                s, k = kp_R(_file=prob, num=7)
+            except:
+                del problems[prob]
+                continue
             max_s=max(s)
             max_k=k[s.index(max(s))]
             if problems[prob][0] < max_s:
@@ -135,7 +147,11 @@ def Master():
         for prob in all_probs_8:
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()            
-            s, k = kp_R(_file=prob, num=4)
+            try:          
+                s, k = kp_R(_file=prob, num=5)
+            except:
+                del problems[prob]
+                continue
             max_s=max(s)
             max_k=k[s.index(max(s))]
             if problems[prob][0] < max_s:
@@ -146,7 +162,11 @@ def Master():
         for prob in all_probs_6:
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()
-            s, k = kp_R(_file=prob, num=3)
+            try:          
+                s, k = kp_R(_file=prob, num=3)
+            except:
+                del problems[prob]
+                continue
             max_s=max(s)
             max_k=k[s.index(max(s))]
             if problems[prob][0] < max_s:
@@ -157,7 +177,11 @@ def Master():
         for prob in all_probs_3:
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()
-            s, k = kp_R(_file=prob, num=2)
+            try:          
+                s, k = kp_R(_file=prob, num=2)
+            except:
+                del problems[prob]
+                continue
             max_s=max(s)
             max_k=k[s.index(max(s))]
             if problems[prob][0] < max_s:
@@ -227,8 +251,16 @@ def kp_R(p=0, m=0, n=0, items=[], c=0, incomp_classes=[], _file="problem1.in", n
         best_value = 0
         best_cost = 0
         sample = random.sample(items, num)
+        st = time.clock()
         while not check_valid(sample, incomp_classes, _dict):
+            if (time.clock() - st) > 2:
+                print(_file, " FAILED!!")
+                return
+                # print(_file, " FAILED!!")
+                # sample = items[0]
+                # break
             sample = random.sample(items, 17)
+
         ps = list(powerset(sample))
         for i in range(len(ps)):
             if ps[i] == () or ps[i] == []:
