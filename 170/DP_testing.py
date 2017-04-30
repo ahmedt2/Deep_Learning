@@ -45,6 +45,8 @@ def write(prob,probs,_f="here.txt"):
 def _write(problems):
     for i in problems:
         _f = i
+        if problems[i][0] == 0 and problems[i][1] == 0:
+            continue
         try:
             if write_or_not(i.strip(".in") + ".out", problems[i][0]):
                 write(i, problems[i], _f = _f) 
@@ -108,7 +110,6 @@ def Master():
             try:          
                 s, k = kp_R(_file=prob, num=14)
             except:
-                del problems[prob]
                 continue
             max_s=max(s)
             max_k=k[s.index(max(s))]
@@ -123,7 +124,6 @@ def Master():
             try:          
                 s, k = kp_R(_file=prob, num=10)
             except:
-                del problems[prob]
                 continue
             max_s=max(s)
             max_k=k[s.index(max(s))]
@@ -138,7 +138,6 @@ def Master():
             try:          
                 s, k = kp_R(_file=prob, num=7)
             except:
-                del problems[prob]
                 continue
             max_s=max(s)
             max_k=k[s.index(max(s))]
@@ -153,7 +152,6 @@ def Master():
             try:          
                 s, k = kp_R(_file=prob, num=5)
             except:
-                del problems[prob]
                 continue
             max_s=max(s)
             max_k=k[s.index(max(s))]
@@ -168,7 +166,6 @@ def Master():
             try:          
                 s, k = kp_R(_file=prob, num=3)
             except:
-                del problems[prob]
                 continue
             max_s=max(s)
             max_k=k[s.index(max(s))]
@@ -183,7 +180,6 @@ def Master():
             try:          
                 s, k = kp_R(_file=prob, num=2)
             except:
-                del problems[prob]
                 continue
             max_s=max(s)
             max_k=k[s.index(max(s))]
@@ -248,7 +244,7 @@ def kp_R(p=0, m=0, n=0, items=[], c=0, incomp_classes=[], _file="problem1.in", n
     knapsackss = []
     _dict = make_dict(items, incomp_classes)
 
-    for u in range(1):
+    for u in range(2):
         knapsack = []
         best_weight = 0
         best_value = 0
@@ -256,7 +252,7 @@ def kp_R(p=0, m=0, n=0, items=[], c=0, incomp_classes=[], _file="problem1.in", n
         sample = random.sample(items, num)
         st = time.clock()
         while not check_valid(sample, incomp_classes, _dict):
-            if (time.clock() - st) > 10:
+            if (time.clock() - st) > 5:
                 print(_file, " FAILED!!")
                 return
                 # print(_file, " FAILED!!")
