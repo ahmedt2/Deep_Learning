@@ -102,7 +102,7 @@ def Master():
         problems[problem] = [0,0]
         preserved[problem] = [0,0]
 
-    for i in range(5):
+    for i in range(100):
         problems = preserved
         for prob in all_probs_22:
             print("\"\"\"", prob, "\"\"\"")
@@ -252,7 +252,7 @@ def kp_R(p=0, m=0, n=0, items=[], c=0, incomp_classes=[], _file="problem1.in", n
         sample = random.sample(items, num)
         st = time.clock()
         while not check_valid(sample, incomp_classes, _dict):
-            if (time.clock() - st) > 5:
+            if (time.clock() - st) > 6:
                 print(_file, " FAILED!!")
                 return
                 # print(_file, " FAILED!!")
@@ -284,11 +284,11 @@ def kp_R(p=0, m=0, n=0, items=[], c=0, incomp_classes=[], _file="problem1.in", n
 # ed = time.clock()
 # print("time = ", ed-st)
 
-# st = time.clock()
-# # s, k = kp_R(_file="problem1.in")
-# pr = Master()
-# ed = time.clock()
-# print("time = ", ed-st)
+st = time.clock()
+# s, k = kp_R(_file="problem1.in")
+pr = Master()
+ed = time.clock()
+print("time = ", ed-st)
 # max(s)
 # k[s.index(max(s))]
 
