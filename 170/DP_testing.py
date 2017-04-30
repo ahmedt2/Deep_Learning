@@ -44,7 +44,12 @@ def write(prob,probs,_f="here.txt"):
 
 def _write(problems):
     for i in problems:
-        if write_or_not(i.strip(".in") + ".out", problems[i][0]):
+        try:
+            if write_or_not(i.strip(".in") + ".out", problems[i][0]):
+                _f = i
+                write(i, problems[i], _f = _f) 
+        except:
+            print("File " + _f + " not found!")
             _f = i
             write(i, problems[i], _f = _f) 
 def weight(item):
@@ -88,16 +93,16 @@ def Master():
     all_probs_22=["problem3.in","problem4.in","problem8.in", "problem13.in", "problem14.in", "problem16.in", "problem17.in", "problem20.in", "problem21.in"]
     all_probs_17=["problem1.in","problem10.in"]
     all_probs_12=["problem5.in", "problem6.in","problem12.in"]
-    all_probs_8=["problem2.in","problem7.in", "problem11.in"]
+    all_probs_8=["problem2.in","problem7.in"]
     all_probs_6 = ["problem18.in", "problem19.in"]
-    all_probs_3 = ["problem9.in","problem15.in"]
+    all_probs_3 = ["problem9.in","problem15.in", "problem11.in"]
     for problem in all_probs:
         problems[problem] = [0,0]
     for i in range(1):
         for prob in all_probs_22:
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()
-            s, k = kp_R(_file=prob, num=20)
+            s, k = kp_R(_file=prob, num=14)
             max_s=max(s)
             max_k=k[s.index(max(s))]
             if problems[prob][0] < max_s:
@@ -108,7 +113,7 @@ def Master():
         for prob in all_probs_17:
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()
-            s, k = kp_R(_file=prob, num=15)
+            s, k = kp_R(_file=prob, num=10)
             max_s=max(s)
             max_k=k[s.index(max(s))]
             if problems[prob][0] < max_s:
@@ -119,7 +124,7 @@ def Master():
         for prob in all_probs_12:
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()            
-            s, k = kp_R(_file=prob, num=10)
+            s, k = kp_R(_file=prob, num=7)
             max_s=max(s)
             max_k=k[s.index(max(s))]
             if problems[prob][0] < max_s:
@@ -130,7 +135,7 @@ def Master():
         for prob in all_probs_8:
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()            
-            s, k = kp_R(_file=prob, num=6)
+            s, k = kp_R(_file=prob, num=4)
             max_s=max(s)
             max_k=k[s.index(max(s))]
             if problems[prob][0] < max_s:
@@ -141,7 +146,7 @@ def Master():
         for prob in all_probs_6:
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()
-            s, k = kp_R(_file=prob, num=4)
+            s, k = kp_R(_file=prob, num=3)
             max_s=max(s)
             max_k=k[s.index(max(s))]
             if problems[prob][0] < max_s:
@@ -152,7 +157,7 @@ def Master():
         for prob in all_probs_3:
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()
-            s, k = kp_R(_file=prob, num=3)
+            s, k = kp_R(_file=prob, num=2)
             max_s=max(s)
             max_k=k[s.index(max(s))]
             if problems[prob][0] < max_s:
@@ -256,19 +261,19 @@ def kp_R(p=0, m=0, n=0, items=[], c=0, incomp_classes=[], _file="problem1.in", n
 # max(s)
 # k[s.index(max(s))]
 
-params = get_params("problem11.in")
-d = make_dict(params[4], params[5])
-st = time.clock()
-ed = 0
-while ed - st < 5:
-    sample = random.sample(params[4], 8)
-    u = check_valid(sample,2,d)
-    check_valid(sample,2,d)
-    if u == True:
-        print("WINNEERRRR!!!")
-        print(ed - st)
-        break
-    ed = time.clock()
+# params = get_params("problem11.in")
+# d = make_dict(params[4], params[5])
+# st = time.clock()
+# ed = 0
+# while ed - st < 5:
+#     sample = random.sample(params[4], 8)
+#     u = check_valid(sample,2,d)
+#     check_valid(sample,2,d)
+#     if u == True:
+#         print("WINNEERRRR!!!")
+#         print(ed - st)
+#         break
+#     ed = time.clock()
 # def kp_G_A(p=0, m=0, n=0, items=[], c=0, incomp_classes=[], _file="problem1.in"):
 #     if p == 0 and m==0 and n==0:
 #         params = get_params(_file)
