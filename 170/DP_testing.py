@@ -53,49 +53,49 @@ def Master():
     all_probs_22=["problem3.in","problem4.in","problem8.in", "problem13.in", "problem14.in", "problem16.in", "problem17.in", "problem20.in", "problem21.in"]
     all_probs_17=["problem1.in","problem10.in", "problem11.in"]
     all_probs_12=["problem5.in", "problem6.in","problem12.in"]
-    all_probs_8=["problem2.in","problem7.in", "problem9.in","problem15.in",  "problem18.in", "problem19.in"]
-    all_probs_6 = ["problem2.in","problem7.in", "problem18.in", "problem19.in"]
+    all_probs_8=["problem2.in","problem7.in"]
+    all_probs_6 = ["problem18.in", "problem19.in"]
     all_probs_3 = ["problem9.in","problem15.in"]
     for problem in all_probs:
-        problems[problem] = []
-    for i in range(1000):
+        problems[problem] = [0,0]
+    for i in range(100):
         for prob in all_probs_22:
-            s, k = kp_R(_file="problem1.in", num=22)
+            s, k = kp_R(_file=prob, num=22)
             max_s=max(s)
             max_k=k[s.index(max(s))]
             if problems[prob][0] < max_s:
                 problems[prob][0] = max_s
                 problems[prob][1] = max_k
         for prob in all_probs_17:
-            s, k = kp_R(_file="problem1.in", num=17)
+            s, k = kp_R(_file=prob, num=17)
             max_s=max(s)
             max_k=k[s.index(max(s))]
             if problems[prob][0] < max_s:
                 problems[prob][0] = max_s
                 problems[prob][1] = max_k
         for prob in all_probs_12:
-            s, k = kp_R(_file="problem1.in", num=12)
+            s, k = kp_R(_file=prob, num=12)
             max_s=max(s)
             max_k=k[s.index(max(s))]
             if problems[prob][0] < max_s:
                 problems[prob][0] = max_s
                 problems[prob][1] = max_k
         for prob in all_probs_8:
-            s, k = kp_R(_file="problem1.in", num=8)
+            s, k = kp_R(_file=prob, num=8)
             max_s=max(s)
             max_k=k[s.index(max(s))]
             if problems[prob][0] < max_s:
                 problems[prob][0] = max_s
                 problems[prob][1] = max_k
         for prob in all_probs_6:
-            s, k = kp_R(_file="problem1.in", num=6)
+            s, k = kp_R(_file=prob, num=6)
             max_s=max(s)
             max_k=k[s.index(max(s))]
             if problems[prob][0] < max_s:
                 problems[prob][0] = max_s
                 problems[prob][1] = max_k
         for prob in all_probs_3:
-            s, k = kp_R(_file="problem1.in", num=3)
+            s, k = kp_R(_file=prob, num=3)
             max_s=max(s)
             max_k=k[s.index(max(s))]
             if problems[prob][0] < max_s:
@@ -214,3 +214,57 @@ def kp_R(p=0, m=0, n=0, items=[], c=0, incomp_classes=[], _file="problem1.in", n
 #         print("WINNEERRRR!!!")
 #         print(i)
 #         break
+# def kp_G_A(p=0, m=0, n=0, items=[], c=0, incomp_classes=[], _file="problem1.in"):
+#     if p == 0 and m==0 and n==0:
+#         params = get_params(_file)
+#         p, m, items = params[0], params[1], params[4]
+#     lst1, lst2, lst3, lst4, lst5, lst6, sorted_lsts = [], [], [], [], [], [], []
+#     for it in items:
+#         try:
+#             lst1.append((it, it[1]/it[0]))
+#         except Exception:
+#             lst1.append((it, 10000000000))
+#         try:
+#             lst2.append((it, it[2]/it[0]))
+#         except Exception:
+#             lst2.append((it, 10000000000))
+#         try:
+#             lst3.append((it, (it[2]-it[1])/it[0]))
+#         except Exception:
+#             lst3.append((it, 10000000000))
+#         try:
+#             lst4.append((it, (it[2]/it[1])/it[0]))
+#         except Exception:
+#             lst4.append((it, 10000000000))
+#         try:
+#             lst5.append((it, it[2]/it[1]))
+#         except Exception:
+#             lst5.append((it, 10000000000))
+#         try:
+#             lst6.append((it, it[2]/(it[1]+it[0])))
+#         except Exception:
+#             lst6.append((it, 10000000000))
+#     for lst in [lst1, lst2, lst3, lst4, lst5, lst6]:
+#         sorted_lsts.append(sorted(lst, key=lambda x: x[1]))
+#     sols = []
+#     u, leave = 1, []
+#     for lst in sorted_lsts:
+#         knapsack, tot_weight,tot_value,tot_cost = [],0,0,0
+#         while len(lst) > 0:
+#             item = lst.pop()[0]
+#             if (weight(item) + tot_weight) <= p and (cost(item) + tot_cost) <= m:
+#                 knapsack.append(item)
+#                 tot_weight += weight(item)
+#                 tot_value += value(item)
+#                 tot_cost += cost(item)
+#                 leave.append([knapsack, tot_value+(m-tot_cost)])
+#             else:
+#                 leave.append([knapsack, tot_value+(m-tot_cost)])
+#                 break
+#         sols.append([u, tot_value + (m-tot_cost), knapsack])
+#         u+=1
+#     leave.extend(sols)
+#     sor = sorted(leave, key=lambda x: x[1])
+#     print("sols=", sols)
+#     return sor[-1], sols
+# def 
