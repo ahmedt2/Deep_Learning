@@ -47,15 +47,61 @@ def get_params(_name):
             incomp_classes.append([int(u) for u in temp])
     return p, m, n, c, items, incomp_classes
 
-# def weight(item):
-#     return item[0]
-
-# def cost(item):
-#     return item[1]
-
-# def value(item):
-#     return item[2]
-
+def Master():
+    problems = {}
+    all_probs=["problem1.in", "problem2.in","problem3.in","problem4.in","problem5.in", "problem6.in","problem7.in", "problem8.in", "problem9.in", "problem10.in", "problem11.in", "problem12.in", "problem13.in", "problem14.in", "problem15.in", "problem16.in", "problem17.in", "problem18.in", "problem19.in", "problem20.in", "problem21.in"]
+    all_probs_22=["problem3.in","problem4.in","problem8.in", "problem13.in", "problem14.in", "problem16.in", "problem17.in", "problem20.in", "problem21.in"]
+    all_probs_17=["problem1.in","problem10.in", "problem11.in"]
+    all_probs_12=["problem5.in", "problem6.in","problem12.in"]
+    all_probs_8=["problem2.in","problem7.in", "problem9.in","problem15.in",  "problem18.in", "problem19.in"]
+    all_probs_6 = ["problem2.in","problem7.in", "problem18.in", "problem19.in"]
+    all_probs_3 = ["problem9.in","problem15.in"]
+    for problem in all_probs:
+        problems[problem] = []
+    for i in range(1000):
+        for prob in all_probs_22:
+            s, k = kp_R(_file="problem1.in", num=22)
+            max_s=max(s)
+            max_k=k[s.index(max(s))]
+            if problems[prob][0] < max_s:
+                problems[prob][0] = max_s
+                problems[prob][1] = max_k
+        for prob in all_probs_17:
+            s, k = kp_R(_file="problem1.in", num=17)
+            max_s=max(s)
+            max_k=k[s.index(max(s))]
+            if problems[prob][0] < max_s:
+                problems[prob][0] = max_s
+                problems[prob][1] = max_k
+        for prob in all_probs_12:
+            s, k = kp_R(_file="problem1.in", num=12)
+            max_s=max(s)
+            max_k=k[s.index(max(s))]
+            if problems[prob][0] < max_s:
+                problems[prob][0] = max_s
+                problems[prob][1] = max_k
+        for prob in all_probs_8:
+            s, k = kp_R(_file="problem1.in", num=8)
+            max_s=max(s)
+            max_k=k[s.index(max(s))]
+            if problems[prob][0] < max_s:
+                problems[prob][0] = max_s
+                problems[prob][1] = max_k
+        for prob in all_probs_6:
+            s, k = kp_R(_file="problem1.in", num=6)
+            max_s=max(s)
+            max_k=k[s.index(max(s))]
+            if problems[prob][0] < max_s:
+                problems[prob][0] = max_s
+                problems[prob][1] = max_k
+        for prob in all_probs_3:
+            s, k = kp_R(_file="problem1.in", num=3)
+            max_s=max(s)
+            max_k=k[s.index(max(s))]
+            if problems[prob][0] < max_s:
+                problems[prob][0] = max_s
+                problems[prob][1] = max_k
+    return problems
 def _powerset(iterable):
     "powerset([1,2,3]) --> () (1,) (2,) (3,) (1,2) (1,3) (2,3) (1,2,3)"
     # s = list([i for i in range(len(iterable))])
@@ -104,7 +150,7 @@ def check_valid(items, incomp_classes, _dict):
     print("CHECK-VALIDATION TIME = ", ed-st)
     return True
 
-def kp_R(p=0, m=0, n=0, items=[], c=0, incomp_classes=[], _file="problem1.in"):
+def kp_R(p=0, m=0, n=0, items=[], c=0, incomp_classes=[], _file="problem1.in", num=10):
     if p == 0 and m==0 and n==0:
         params = get_params(_file)
         p, m, n, c, items, incomp_classes = params[0], params[1],  params[2],  params[3],\
@@ -119,7 +165,7 @@ def kp_R(p=0, m=0, n=0, items=[], c=0, incomp_classes=[], _file="problem1.in"):
         best_value = 0
         best_cost = 0
         st = time.clock()
-        sample = random.sample(items, 7)
+        sample = random.sample(items, num)
         while not check_valid(sample, incomp_classes, _dict):
             sample = random.sample(items, 17)
         ed = time.clock()
