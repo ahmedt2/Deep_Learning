@@ -102,13 +102,13 @@ def Master():
         problems[problem] = [0,0]
         preserved[problem] = [0,0]
 
-    for i in range(100):
+    for i in range(10):
         problems = preserved
         for prob in all_probs_22:
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()
             try:          
-                s, k = kp_R(_file=prob, num=14)
+                s, k = kp_R(_file=prob, num=22)
             except:
                 continue
             max_s=max(s)
@@ -122,7 +122,7 @@ def Master():
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()
             try:          
-                s, k = kp_R(_file=prob, num=10)
+                s, k = kp_R(_file=prob, num=17)
             except:
                 continue
             max_s=max(s)
@@ -136,7 +136,7 @@ def Master():
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()
             try:          
-                s, k = kp_R(_file=prob, num=7)
+                s, k = kp_R(_file=prob, num=12)
             except:
                 continue
             max_s=max(s)
@@ -150,7 +150,7 @@ def Master():
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()            
             try:          
-                s, k = kp_R(_file=prob, num=5)
+                s, k = kp_R(_file=prob, num=8)
             except:
                 continue
             max_s=max(s)
@@ -164,7 +164,7 @@ def Master():
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()
             try:          
-                s, k = kp_R(_file=prob, num=3)
+                s, k = kp_R(_file=prob, num=6)
             except:
                 continue
             max_s=max(s)
@@ -178,7 +178,7 @@ def Master():
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()
             try:          
-                s, k = kp_R(_file=prob, num=2)
+                s, k = kp_R(_file=prob, num=3)
             except:
                 continue
             max_s=max(s)
