@@ -23,6 +23,8 @@ def creat_instance():
     for i in range(11300*16): #11,500    
         st.append(str(i) + "; " + str(np.random.randint(100)) + "; " + str(np.random.randint(100)) + "; " + str(np.random.randint(100)) + "; " + str(np.random.randint(100)))
     return st
+
+
 def write_or_not(_name, score):
     content = loadFromFile(_name)
     stuff = float(content[2])
@@ -84,82 +86,58 @@ def get_params(_name):
 
 def Master():
     problems = {}
-    all_probs=["problem1.in", "problem2.in","problem3.in","problem4.in","problem5.in", "problem6.in","problem7.in", "problem8.in", "problem9.in", "problem10.in", "problem11.in", "problem12.in", "problem13.in", "problem14.in", "problem15.in", "problem16.in", "problem17.in", "problem18.in", "problem19.in", "problem20.in", "problem21.in"]
-    all_probs_22=["problem3.in","problem4.in","problem8.in", "problem13.in", "problem14.in", "problem16.in", "problem17.in", "problem20.in", "problem21.in"]
-    all_probs_17=["problem1.in","problem10.in", "problem11.in"]
-    all_probs_12=["problem5.in", "problem6.in","problem12.in"]
-    all_probs_8=["problem2.in","problem7.in"]
-    all_probs_6 = ["problem18.in", "problem19.in"]
-    all_probs_3 = ["problem9.in","problem15.in"]
+    all_probs=["problem3.in", "problem1.in"]#, "problem2.in","problem3.in","problem4.in","problem5.in", "problem6.in","problem7.in", "problem8.in", "problem9.in", "problem10.in", "problem11.in", "problem12.in", "problem13.in", "problem14.in", "problem15.in", "problem16.in", "problem17.in", "problem18.in", "problem19.in", "problem20.in", "problem21.in"]
+    all_probs_22=["problem3.in"]#,"problem4.in","problem8.in", "problem13.in", "problem14.in", "problem16.in", "problem17.in", "problem20.in", "problem21.in"]
+    all_probs_17=["problem1.in"]#,"problem10.in", "problem11.in"]
+    all_probs_12=["problem5.in"]#, "problem6.in","problem12.in"]
+    all_probs_8=["problem2.in"]#,"problem7.in"]
+    all_probs_6 = ["problem18.in"]#, "problem19.in"]
+    all_probs_3 = ["problem9.in"]#,"problem15.in"]
     for problem in all_probs:
         problems[problem] = [0,0]
     for i in range(1):
         for prob in all_probs_22:
-            print("\"\"\"", prob, "\"\"\"")
-            st = time.clock()
-            s, k = kp_R(_file=prob, num=20)
+            s, k = kp_R(_file=prob, num=22)
             max_s=max(s)
             max_k=k[s.index(max(s))]
             if problems[prob][0] < max_s:
                 problems[prob][0] = max_s
                 problems[prob][1] = max_k
-            ed = time.clock()
-            print("CHECK-VALIDATION TIME = ", ed-st)
         for prob in all_probs_17:
-            print("\"\"\"", prob, "\"\"\"")
-            st = time.clock()
-            s, k = kp_R(_file=prob, num=15)
+            s, k = kp_R(_file=prob, num=17)
             max_s=max(s)
             max_k=k[s.index(max(s))]
             if problems[prob][0] < max_s:
                 problems[prob][0] = max_s
                 problems[prob][1] = max_k
-            ed = time.clock()
-            print("CHECK-VALIDATION TIME = ", ed-st)                
-        for prob in all_probs_12:
-            print("\"\"\"", prob, "\"\"\"")
-            st = time.clock()            
-            s, k = kp_R(_file=prob, num=10)
-            max_s=max(s)
-            max_k=k[s.index(max(s))]
-            if problems[prob][0] < max_s:
-                problems[prob][0] = max_s
-                problems[prob][1] = max_k
-            ed = time.clock()
-            print("CHECK-VALIDATION TIME = ", ed-st)                
-        for prob in all_probs_8:
-            print("\"\"\"", prob, "\"\"\"")
-            st = time.clock()            
-            s, k = kp_R(_file=prob, num=6)
-            max_s=max(s)
-            max_k=k[s.index(max(s))]
-            if problems[prob][0] < max_s:
-                problems[prob][0] = max_s
-                problems[prob][1] = max_k
-            ed = time.clock()
-            print("CHECK-VALIDATION TIME = ", ed-st)                
-        for prob in all_probs_6:
-            print("\"\"\"", prob, "\"\"\"")
-            st = time.clock()
-            s, k = kp_R(_file=prob, num=4)
-            max_s=max(s)
-            max_k=k[s.index(max(s))]
-            if problems[prob][0] < max_s:
-                problems[prob][0] = max_s
-                problems[prob][1] = max_k
-            ed = time.clock()
-            print("CHECK-VALIDATION TIME = ", ed-st)                
-        for prob in all_probs_3:
-            print("\"\"\"", prob, "\"\"\"")
-            st = time.clock()
-            s, k = kp_R(_file=prob, num=3)
-            max_s=max(s)
-            max_k=k[s.index(max(s))]
-            if problems[prob][0] < max_s:
-                problems[prob][0] = max_s
-                problems[prob][1] = max_k
-            ed = time.clock()
-            print("CHECK-VALIDATION TIME = ", ed-st)                
+        # for prob in all_probs_12:
+        #     s, k = kp_R(_file=prob, num=12)
+        #     max_s=max(s)
+        #     max_k=k[s.index(max(s))]
+        #     if problems[prob][0] < max_s:
+        #         problems[prob][0] = max_s
+        #         problems[prob][1] = max_k
+        # for prob in all_probs_8:
+        #     s, k = kp_R(_file=prob, num=8)
+        #     max_s=max(s)
+        #     max_k=k[s.index(max(s))]
+        #     if problems[prob][0] < max_s:
+        #         problems[prob][0] = max_s
+        #         problems[prob][1] = max_k
+        # for prob in all_probs_6:
+        #     s, k = kp_R(_file=prob, num=6)
+        #     max_s=max(s)
+        #     max_k=k[s.index(max(s))]
+        #     if problems[prob][0] < max_s:
+        #         problems[prob][0] = max_s
+        #         problems[prob][1] = max_k
+        # for prob in all_probs_3:
+        #     s, k = kp_R(_file=prob, num=3)
+        #     max_s=max(s)
+        #     max_k=k[s.index(max(s))]
+        #     if problems[prob][0] < max_s:
+        #         problems[prob][0] = max_s
+        #         problems[prob][1] = max_k
     _write(problems)
     return problems
 def _powerset(iterable):
@@ -195,6 +173,7 @@ def make_dict(items, incomp_classes):
     return _dic
 
 def check_valid(items, incomp_classes, _dict):
+    st = time.clock()
     classes = []
     for item in items:
         classes.append(item[1])
@@ -205,6 +184,8 @@ def check_valid(items, incomp_classes, _dict):
                 c += 1
         if c >= 1:
             return False
+    ed = time.clock()
+    print("CHECK-VALIDATION TIME = ", ed-st)
     return True
 
 def kp_R(p=0, m=0, n=0, items=[], c=0, incomp_classes=[], _file="problem1.in", num=10):
@@ -221,10 +202,16 @@ def kp_R(p=0, m=0, n=0, items=[], c=0, incomp_classes=[], _file="problem1.in", n
         best_weight = 0
         best_value = 0
         best_cost = 0
+        st = time.clock()
         sample = random.sample(items, num)
         while not check_valid(sample, incomp_classes, _dict):
             sample = random.sample(items, 17)
+        ed = time.clock()
+        print("GETTING-VALID = ", ed-st)
+        st = time.clock()
         ps = list(powerset(sample))
+        ed = time.clock()
+        print("POWER-SET = ", ed-st)
         for i in range(len(ps)):
             if ps[i] == () or ps[i] == []:
                 if m > best_value:

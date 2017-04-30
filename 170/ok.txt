@@ -1,0 +1,5 @@
+FILE: ok
+Max Score: 1
+KnapSack: 
+1
+2
