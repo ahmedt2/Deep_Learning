@@ -44,13 +44,12 @@ def write(prob,probs,_f="here.txt"):
 
 def _write(problems):
     for i in problems:
+        _f = i
         try:
             if write_or_not(i.strip(".in") + ".out", problems[i][0]):
-                _f = i
                 write(i, problems[i], _f = _f) 
         except:
             print("File " + _f + " not found!")
-            _f = i
             write(i, problems[i], _f = _f) 
 def weight(item):
     return item[2]
@@ -98,7 +97,7 @@ def Master():
     all_probs_3 = ["problem9.in","problem15.in", "problem11.in"]
     for problem in all_probs:
         problems[problem] = [0,0]
-    for i in range(1):
+    for i in range(5):
         for prob in all_probs_22:
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()
