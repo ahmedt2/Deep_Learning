@@ -12,6 +12,28 @@ import numpy as np
 from itertools import chain, combinations
 from itertools import chain, combinations
 
+import string
+import numpy as np
+alphabet = list(string.ascii_lowercase)
+
+
+def creat_instance():
+    k = 0
+    st = []
+    for i in range(11300*16): #11,500    
+        st.append(str(i) + "; " + str(np.random.randint(100)) + "; " + str(np.random.randint(100)) + "; " + str(np.random.randint(100)) + "; " + str(np.random.randint(100)))
+    return st
+
+def write(prob,probs,_f="here.txt"):
+    _max = probs[0]
+    ks = probs[1]
+    f = open(_f, 'w')
+    f.write("FILE: " + prob + '\n')
+    f.write("Max Score: " + str(_max) +'\n')
+    f.write("KnapSack: \n")
+    for i in kp:
+        f.write(i + '\n')
+
 def weight(item):
     return item[0]
 
@@ -126,7 +148,7 @@ def kp_G_A(p=0, m=0, n=0, items=[], c=0, incomp_classes=[], _file="problem1.in")
     print("sols=", sols)
     return sor[-1], sols
 
-    return solutions
+    # return solutions
 import sys
 import string
 import time

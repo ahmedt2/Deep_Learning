@@ -58,7 +58,7 @@ def Master():
     all_probs_3 = ["problem9.in","problem15.in"]
     for problem in all_probs:
         problems[problem] = []
-    for i in range(1000):
+    for i in range(100):
         for prob in all_probs_22:
             s, k = kp_R(_file="problem1.in", num=22)
             max_s=max(s)

@@ -12,6 +12,28 @@ import time
 import numpy as np
 from itertools import chain, combinations
 
+import string
+import numpy as np
+alphabet = list(string.ascii_lowercase)
+
+
+def creat_instance():
+    k = 0
+    st = []
+    for i in range(11300*16): #11,500    
+        st.append(str(i) + "; " + str(np.random.randint(100)) + "; " + str(np.random.randint(100)) + "; " + str(np.random.randint(100)) + "; " + str(np.random.randint(100)))
+    return st
+
+def write(prob,probs,_f="here.txt"):
+    _max = probs[0]
+    ks = probs[1]
+    f = open(_f, 'w')
+    f.write("FILE: " + prob + '\n')
+    f.write("Max Score: " + str(_max) +'\n')
+    f.write("KnapSack: \n")
+    for i in kp:
+        f.write(i + '\n')
+
 def weight(item):
     return item[2]
 
@@ -58,7 +80,7 @@ def Master():
     all_probs_3 = ["problem9.in","problem15.in"]
     for problem in all_probs:
         problems[problem] = [0,0]
-    for i in range(100):
+    for i in range(1):
         for prob in all_probs_22:
             s, k = kp_R(_file=prob, num=22)
             max_s=max(s)
@@ -197,10 +219,11 @@ def kp_R(p=0, m=0, n=0, items=[], c=0, incomp_classes=[], _file="problem1.in", n
 # ed = time.clock()
 # print("time = ", ed-st)
 
-# st = time.clock()
+st = time.clock()
 # s, k = kp_R(_file="problem1.in")
-# ed = time.clock()
-# print("time = ", ed-st)
+pr = Master()
+ed = time.clock()
+print("time = ", ed-st)
 # max(s)
 # k[s.index(max(s))]
 
