@@ -101,7 +101,7 @@ def Master():
         preserved[problem] = [0,0]
 
     for i in range(5):
-        problems = problems
+        problems = preserved
         for prob in all_probs_22:
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()
