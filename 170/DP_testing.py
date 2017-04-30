@@ -86,9 +86,9 @@ def Master():
     problems = {}
     all_probs=["problem1.in", "problem2.in","problem3.in","problem4.in","problem5.in", "problem6.in","problem7.in", "problem8.in", "problem9.in", "problem10.in", "problem11.in", "problem12.in", "problem13.in", "problem14.in", "problem15.in", "problem16.in", "problem17.in", "problem18.in", "problem19.in", "problem20.in", "problem21.in"]
     all_probs_22=["problem3.in","problem4.in","problem8.in", "problem13.in", "problem14.in", "problem16.in", "problem17.in", "problem20.in", "problem21.in"]
-    all_probs_17=["problem1.in","problem10.in", "problem11.in"]
+    all_probs_17=["problem1.in","problem10.in"]
     all_probs_12=["problem5.in", "problem6.in","problem12.in"]
-    all_probs_8=["problem2.in","problem7.in"]
+    all_probs_8=["problem2.in","problem7.in", "problem11.in"]
     all_probs_6 = ["problem18.in", "problem19.in"]
     all_probs_3 = ["problem9.in","problem15.in"]
     for problem in all_probs:
@@ -256,16 +256,19 @@ def kp_R(p=0, m=0, n=0, items=[], c=0, incomp_classes=[], _file="problem1.in", n
 # max(s)
 # k[s.index(max(s))]
 
-# params = get_params("problem10.in")
-# d = make_dict(params[4], params[5])
-# for i in range(100000):
-#     sample = random.sample(params[4], 22)
-#     u = check_valid(sample,2,d)
-#     check_valid(sample,2,d)
-#     if u == True:
-#         print("WINNEERRRR!!!")
-#         print(i)
-#         break
+params = get_params("problem11.in")
+d = make_dict(params[4], params[5])
+st = time.clock()
+ed = 0
+while ed - st < 5:
+    sample = random.sample(params[4], 8)
+    u = check_valid(sample,2,d)
+    check_valid(sample,2,d)
+    if u == True:
+        print("WINNEERRRR!!!")
+        print(ed - st)
+        break
+    ed = time.clock()
 # def kp_G_A(p=0, m=0, n=0, items=[], c=0, incomp_classes=[], _file="problem1.in"):
 #     if p == 0 and m==0 and n==0:
 #         params = get_params(_file)
