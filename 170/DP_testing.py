@@ -252,7 +252,7 @@ def kp_R(p=0, m=0, n=0, items=[], c=0, incomp_classes=[], _file="problem1.in", n
         sample = random.sample(items, num)
         st = time.clock()
         while not check_valid(sample, incomp_classes, _dict):
-            if (time.clock() - st) > 2:
+            if (time.clock() - st) > 10:
                 print(_file, " FAILED!!")
                 return
                 # print(_file, " FAILED!!")
