@@ -88,7 +88,8 @@ def get_params(_name):
 
 def Master():
     problems = {}
-    all_probs=["problem1.in", "problem2.in","problem3.in","problem4.in","problem5.in", "problem6.in","problem7.in", "problem8.in", "problem9.in", "problem10.in", "problem11.in", "problem12.in", "problem13.in", "problem14.in", "problem15.in", "problem16.in", "problem17.in", "problem18.in", "problem19.in", "problem20.in", "problem21.in"]
+    preserved=["problem1.in", "problem2.in","problem3.in","problem4.in","problem5.in", "problem6.in","problem7.in", "problem8.in", "problem9.in", "problem10.in", "problem11.in", "problem12.in", "problem13.in", "problem14.in", "problem15.in", "problem16.in", "problem17.in", "problem18.in", "problem19.in", "problem20.in", "problem21.in"]
+    all_probs = preserved
     all_probs_22=["problem3.in","problem4.in","problem8.in", "problem13.in", "problem14.in", "problem16.in", "problem17.in", "problem20.in", "problem21.in"]
     all_probs_17=["problem1.in","problem10.in"]
     all_probs_12=["problem5.in", "problem6.in","problem12.in"]
@@ -98,6 +99,7 @@ def Master():
     for problem in all_probs:
         problems[problem] = [0,0]
     for i in range(5):
+        all_probs = preserved
         for prob in all_probs_22:
             print("\"\"\"", prob, "\"\"\"")
             st = time.clock()
